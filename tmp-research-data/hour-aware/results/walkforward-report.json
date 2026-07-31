@@ -1,0 +1,756 @@
+{
+  "acceptance": {
+    "initial_usd": 50.0,
+    "max_drawdown": 0.15,
+    "min_oos_days": 10,
+    "min_trades": 50,
+    "target_avg_daily_usd": 2.0
+  },
+  "data": {
+    "complete_days_hkt": [
+      "2026-03-30",
+      "2026-03-31",
+      "2026-04-01",
+      "2026-04-02",
+      "2026-04-03",
+      "2026-04-04",
+      "2026-04-05",
+      "2026-04-06",
+      "2026-04-07",
+      "2026-04-08",
+      "2026-04-09",
+      "2026-04-10",
+      "2026-04-11"
+    ],
+    "doi": "10.5281/zenodo.20043302",
+    "episode_win_rate": 0.2905405405405405,
+    "episodes": 148,
+    "first_utc": "2026-03-29T14:33:12.034000+00:00",
+    "last_utc": "2026-04-12T15:40:04.841000+00:00",
+    "raw_rows": 190,
+    "raw_win_rate": 0.4052631578947368
+  },
+  "methodology": {
+    "future_leakage": false,
+    "initial_train_days": 3,
+    "limitations": [
+      "source strategy is not the user's DBot entry engine",
+      "full candidate-universe minute bars are absent",
+      "exit reason is not used as an entry feature"
+    ],
+    "partial_exit_reconstruction": "equal weighted",
+    "walk_forward": true
+  },
+  "overall_target_met": false,
+  "recommended_overlay": {
+    "blocked_hour_count": 0,
+    "daily_loss_cap": 0.02,
+    "half_after_losses": 2,
+    "halt_after_losses": 5,
+    "position_fraction": 0.01
+  },
+  "scenarios": {
+    "0pct_costless": {
+      "bootstrap": {
+        "iterations": 5000,
+        "p05": -0.17955089445683364,
+        "p50": -0.08162834238710487,
+        "p95": -0.012025232411699524,
+        "probability_average_daily_at_least_2_usd": 0.0
+      },
+      "cost_fraction": 0.0,
+      "hindsight_upper_bound": {
+        "average_daily_profit": -0.022339893214261507,
+        "blocked_hours_hkt": [
+          2,
+          16,
+          13
+        ],
+        "completed_trades": 58,
+        "implied_position_fraction": null,
+        "max_drawdown": 0.010467320638046403,
+        "net_profit": -0.22339893214261508,
+        "params": {
+          "blocked_hour_count": 3,
+          "daily_loss_cap": 0.02,
+          "half_after_losses": 3,
+          "halt_after_losses": 5,
+          "position_fraction": 0.01
+        },
+        "required_linear_pnl_scaling_to_target": Infinity,
+        "target_met": false,
+        "warning": "hindsight upper bound, not predictive"
+      },
+      "walk_forward": {
+        "average_daily_profit": -0.08693715562786153,
+        "completed_trades": 69,
+        "daily_pnl": {
+          "2026-04-02": -0.5027666134554423,
+          "2026-04-03": 0.04288858845414873,
+          "2026-04-04": 0.0,
+          "2026-04-05": 0.0,
+          "2026-04-06": 0.0,
+          "2026-04-07": -0.19485642254985325,
+          "2026-04-08": -0.02630770621359669,
+          "2026-04-09": -0.1868831480114739,
+          "2026-04-10": 0.06440572355564674,
+          "2026-04-11": -0.06585197805804154
+        },
+        "day_count": 10,
+        "final": 49.130628443721385,
+        "initial": 50.0,
+        "max_drawdown": 0.017387431125572304,
+        "net_profit": -0.8693715562786153,
+        "net_without_top3_winners": -1.2873481552113815,
+        "selection_log": [
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.3224098829776582,
+            "test_day": "2026-04-02",
+            "train_dd": 0.014999970155177636,
+            "train_net": -0.5085262179085035,
+            "train_trades": 26
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.36622071557494973,
+            "test_day": "2026-04-03",
+            "train_dd": 0.020123588625506558,
+            "train_net": -1.0061794312753278,
+            "train_trades": 31
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 3,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.28117834339369585,
+            "test_day": "2026-04-04",
+            "train_dd": 0.020742295862980598,
+            "train_net": -0.8683447724196753,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 3,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.2343152861614132,
+            "test_day": "2026-04-05",
+            "train_dd": 0.020742295862980598,
+            "train_net": -0.8683447724196753,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 3,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.2008416738526399,
+            "test_day": "2026-04-06",
+            "train_dd": 0.020742295862980598,
+            "train_net": -0.8683447724196753,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 3,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.1757364646210599,
+            "test_day": "2026-04-07",
+            "train_dd": 0.020742295862980598,
+            "train_net": -0.8683447724196753,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [
+              23,
+              7
+            ],
+            "params": {
+              "blocked_hour_count": 2,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 3,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.1555861727198236,
+            "test_day": "2026-04-08",
+            "train_dd": 0.01657812625303756,
+            "train_net": -0.6773304082247265,
+            "train_trades": 62
+          },
+          {
+            "blocked_hours_hkt": [
+              23,
+              7
+            ],
+            "params": {
+              "blocked_hour_count": 2,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.1431110417865493,
+            "test_day": "2026-04-09",
+            "train_dd": 0.017562229129795486,
+            "train_net": -0.7034762577054607,
+            "train_trades": 76
+          },
+          {
+            "blocked_hours_hkt": [
+              10,
+              7
+            ],
+            "params": {
+              "blocked_hour_count": 2,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.15164095558213492,
+            "test_day": "2026-04-10",
+            "train_dd": 0.018429736795363142,
+            "train_net": -0.921486839768157,
+            "train_trades": 86
+          },
+          {
+            "blocked_hours_hkt": [
+              10,
+              7,
+              2
+            ],
+            "params": {
+              "blocked_hour_count": 3,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.12208383456927775,
+            "test_day": "2026-04-11",
+            "train_dd": 0.014707206509649637,
+            "train_net": -0.5700921041983804,
+            "train_trades": 90
+          }
+        ],
+        "skipped_trades": 14,
+        "target_met": false,
+        "test_days": [
+          "2026-04-02",
+          "2026-04-03",
+          "2026-04-04",
+          "2026-04-05",
+          "2026-04-06",
+          "2026-04-07",
+          "2026-04-08",
+          "2026-04-09",
+          "2026-04-10",
+          "2026-04-11"
+        ],
+        "win_rate": 0.2753623188405797
+      }
+    },
+    "2pct_round_trip": {
+      "bootstrap": {
+        "iterations": 5000,
+        "p05": -0.23849684143688066,
+        "p50": -0.13905534573289702,
+        "p95": -0.062346893054934835,
+        "probability_average_daily_at_least_2_usd": 0.0
+      },
+      "cost_fraction": 0.02,
+      "hindsight_upper_bound": {
+        "average_daily_profit": -0.07778756363661828,
+        "blocked_hours_hkt": [
+          2,
+          16,
+          13
+        ],
+        "completed_trades": 58,
+        "implied_position_fraction": null,
+        "max_drawdown": 0.0173093109210366,
+        "net_profit": -0.7778756363661827,
+        "params": {
+          "blocked_hour_count": 3,
+          "daily_loss_cap": 0.02,
+          "half_after_losses": 3,
+          "halt_after_losses": 5,
+          "position_fraction": 0.01
+        },
+        "required_linear_pnl_scaling_to_target": Infinity,
+        "target_met": false,
+        "warning": "hindsight upper bound, not predictive"
+      },
+      "walk_forward": {
+        "average_daily_profit": -0.14304083481912572,
+        "completed_trades": 69,
+        "daily_pnl": {
+          "2026-04-02": -0.5374984173786999,
+          "2026-04-03": -0.08570167755344031,
+          "2026-04-04": 0.0,
+          "2026-04-05": 0.0,
+          "2026-04-06": 0.0,
+          "2026-04-07": -0.3190240036425143,
+          "2026-04-08": -0.11633514833031662,
+          "2026-04-09": -0.27317721695136454,
+          "2026-04-10": -0.009233990093332532,
+          "2026-04-11": -0.08943789424159247
+        },
+        "day_count": 10,
+        "final": 48.56959165180874,
+        "initial": 50.0,
+        "max_drawdown": 0.028608166963825142,
+        "net_profit": -1.430408348191257,
+        "net_without_top3_winners": -1.8138989903020364,
+        "selection_log": [
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.3780381421795153,
+            "test_day": "2026-04-02",
+            "train_dd": 0.01746102894966242,
+            "train_net": -0.7061320605455492,
+            "train_trades": 26
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.4160054866542959,
+            "test_day": "2026-04-03",
+            "train_dd": 0.024720791612483736,
+            "train_net": -1.2360395806241868,
+            "train_trades": 31
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.34970265802547273,
+            "test_day": "2026-04-04",
+            "train_dd": 0.027586274070718845,
+            "train_net": -1.320530924134367,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.2914188816878939,
+            "test_day": "2026-04-05",
+            "train_dd": 0.027586274070718845,
+            "train_net": -1.320530924134367,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.24978761287533766,
+            "test_day": "2026-04-06",
+            "train_dd": 0.027586274070718845,
+            "train_net": -1.320530924134367,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.21856416126592046,
+            "test_day": "2026-04-07",
+            "train_dd": 0.027586274070718845,
+            "train_net": -1.320530924134367,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [
+              23,
+              7
+            ],
+            "params": {
+              "blocked_hour_count": 2,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.20792206636307783,
+            "test_day": "2026-04-08",
+            "train_dd": 0.02390843875889729,
+            "train_net": -1.1954219379448645,
+            "train_trades": 62
+          },
+          {
+            "blocked_hours_hkt": [
+              23,
+              7
+            ],
+            "params": {
+              "blocked_hour_count": 2,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.20070333146233366,
+            "test_day": "2026-04-09",
+            "train_dd": 0.02622313310601001,
+            "train_net": -1.3111566553005005,
+            "train_trades": 76
+          },
+          {
+            "blocked_hours_hkt": [
+              10,
+              7
+            ],
+            "params": {
+              "blocked_hour_count": 2,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.21038893491718524,
+            "test_day": "2026-04-10",
+            "train_dd": 0.03198829397744362,
+            "train_net": -1.599414698872181,
+            "train_trades": 86
+          },
+          {
+            "blocked_hours_hkt": [
+              10,
+              7,
+              2
+            ],
+            "params": {
+              "blocked_hour_count": 3,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.17944068663717794,
+            "test_day": "2026-04-11",
+            "train_dd": 0.027830238525777276,
+            "train_net": -1.2917742740376639,
+            "train_trades": 90
+          }
+        ],
+        "skipped_trades": 14,
+        "target_met": false,
+        "test_days": [
+          "2026-04-02",
+          "2026-04-03",
+          "2026-04-04",
+          "2026-04-05",
+          "2026-04-06",
+          "2026-04-07",
+          "2026-04-08",
+          "2026-04-09",
+          "2026-04-10",
+          "2026-04-11"
+        ],
+        "win_rate": 0.2753623188405797
+      }
+    },
+    "5pct_round_trip": {
+      "bootstrap": {
+        "iterations": 5000,
+        "p05": -0.32856860221092454,
+        "p50": -0.22286696531716074,
+        "p95": -0.12440124505432275,
+        "probability_average_daily_at_least_2_usd": 0.0
+      },
+      "cost_fraction": 0.05,
+      "hindsight_upper_bound": {
+        "average_daily_profit": -0.15132897599548017,
+        "blocked_hours_hkt": [
+          2,
+          16,
+          13
+        ],
+        "completed_trades": 58,
+        "implied_position_fraction": null,
+        "max_drawdown": 0.030265795199096033,
+        "net_profit": -1.5132897599548016,
+        "params": {
+          "blocked_hour_count": 3,
+          "daily_loss_cap": 0.02,
+          "half_after_losses": 2,
+          "halt_after_losses": 5,
+          "position_fraction": 0.01
+        },
+        "required_linear_pnl_scaling_to_target": Infinity,
+        "target_met": false,
+        "warning": "hindsight upper bound, not predictive"
+      },
+      "walk_forward": {
+        "average_daily_profit": -0.22355717112633472,
+        "completed_trades": 69,
+        "daily_pnl": {
+          "2026-04-02": -0.5895606953237262,
+          "2026-04-03": -0.27766978743313653,
+          "2026-04-04": 0.0,
+          "2026-04-05": 0.0,
+          "2026-04-06": 0.0,
+          "2026-04-07": -0.44461399793324563,
+          "2026-04-08": -0.28278942324229056,
+          "2026-04-09": -0.40006497743788694,
+          "2026-04-10": -0.11698538590066071,
+          "2026-04-11": -0.12388744399240359
+        },
+        "day_count": 10,
+        "final": 47.76442828873665,
+        "initial": 50.0,
+        "max_drawdown": 0.04471143422526694,
+        "net_profit": -2.235571711263347,
+        "net_without_top3_winners": -2.5790144662318646,
+        "selection_log": [
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.4618095605938099,
+            "test_day": "2026-04-02",
+            "train_dd": 0.02114114113467707,
+            "train_net": -1.0010896715146984,
+            "train_trades": 26
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.49079632866219103,
+            "test_day": "2026-04-03",
+            "train_dd": 0.03157692608764066,
+            "train_net": -1.5788463043820329,
+            "train_trades": 31
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.4470591309912185,
+            "test_day": "2026-04-04",
+            "train_dd": 0.037749317437905175,
+            "train_net": -1.8509566446893615,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.37254927582601544,
+            "test_day": "2026-04-05",
+            "train_dd": 0.037749317437905175,
+            "train_net": -1.8509566446893615,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.31932795070801323,
+            "test_day": "2026-04-06",
+            "train_dd": 0.037749317437905175,
+            "train_net": -1.8509566446893615,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [],
+            "params": {
+              "blocked_hour_count": 0,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.2794119568695116,
+            "test_day": "2026-04-07",
+            "train_dd": 0.037749317437905175,
+            "train_net": -1.8509566446893615,
+            "train_trades": 45
+          },
+          {
+            "blocked_hours_hkt": [
+              23,
+              7
+            ],
+            "params": {
+              "blocked_hour_count": 2,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.2577088518502439,
+            "test_day": "2026-04-08",
+            "train_dd": 0.03381426076727109,
+            "train_net": -1.6907130383635547,
+            "train_trades": 56
+          },
+          {
+            "blocked_hours_hkt": [
+              23,
+              7
+            ],
+            "params": {
+              "blocked_hour_count": 2,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.2619968554265927,
+            "test_day": "2026-04-09",
+            "train_dd": 0.03942603851954573,
+            "train_net": -1.9713019259772864,
+            "train_trades": 70
+          },
+          {
+            "blocked_hours_hkt": [
+              10,
+              7
+            ],
+            "params": {
+              "blocked_hour_count": 2,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.2755217039575046,
+            "test_day": "2026-04-10",
+            "train_dd": 0.04725993753628885,
+            "train_net": -2.3629968768144423,
+            "train_trades": 80
+          },
+          {
+            "blocked_hours_hkt": [
+              10,
+              7,
+              2
+            ],
+            "params": {
+              "blocked_hour_count": 3,
+              "daily_loss_cap": 0.02,
+              "half_after_losses": 2,
+              "halt_after_losses": 5,
+              "position_fraction": 0.01
+            },
+            "score": -0.2442171574891042,
+            "test_day": "2026-04-11",
+            "train_dd": 0.04244800979306348,
+            "train_net": -2.1175970197717433,
+            "train_trades": 84
+          }
+        ],
+        "skipped_trades": 14,
+        "target_met": false,
+        "test_days": [
+          "2026-04-02",
+          "2026-04-03",
+          "2026-04-04",
+          "2026-04-05",
+          "2026-04-06",
+          "2026-04-07",
+          "2026-04-08",
+          "2026-04-09",
+          "2026-04-10",
+          "2026-04-11"
+        ],
+        "win_rate": 0.2608695652173913
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# Paper-only overlay; requested profit target was not validated.
+validated_target: false
+mode: paper
+risk:
+  max_position_account_ratio: 0.0100
+  max_daily_loss_account_ratio: 0.0200
+  consecutive_loss_halve_after: 2
+  consecutive_loss_halt_after: 5
+  max_open_positions: 5
+  max_total_exposure_ratio: 0.1500
+  adaptive_hour_gate:
+    enabled: true
+    max_blocked_hours: 0
+    minimum_prior_samples_per_hour: 4
