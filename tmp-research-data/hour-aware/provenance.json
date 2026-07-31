@@ -1,0 +1,30 @@
+{
+  "doi": "10.5281/zenodo.20043302",
+  "files": {
+    "rejection_outcomes.csv": {
+      "bytes": 933160,
+      "md5": "14df5782fd258ce1e13a98b1d96790e0",
+      "rows": 4874,
+      "url": "https://zenodo.org/records/20043302/files/rejection_outcomes.csv?download=1"
+    },
+    "scanner_2026-04-09.csv": {
+      "bytes": 557517,
+      "md5": "613e30eb2e0305a8e1c85f89a9b0d8c2",
+      "rows": 2969,
+      "url": "https://zenodo.org/records/20043302/files/scanner_2026-04-09.csv?download=1"
+    },
+    "scanner_2026-04-10.csv": {
+      "bytes": 815042,
+      "md5": "f925382bba08e80f34d6f209dd7713a6",
+      "rows": 4367,
+      "url": "https://zenodo.org/records/20043302/files/scanner_2026-04-10.csv?download=1"
+    },
+    "trades.csv": {
+      "bytes": 20629,
+      "md5": "b3a4c482547a48063319f0a420cb2217",
+      "rows": 190,
+      "url": "https://zenodo.org/records/20043302/files/trades.csv?download=1"
+    }
+  },
+  "source": "https://zenodo.org/records/20043302"
+}
