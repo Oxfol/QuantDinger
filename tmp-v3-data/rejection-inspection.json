@@ -1,0 +1,212 @@
+{
+  "source": "https://zenodo.org/records/21149176",
+  "doi": "10.5281/zenodo.21149176",
+  "file": {
+    "name": "rejection_outcomes.jsonl.gz",
+    "bytes": 43621455,
+    "md5": "38f7ffeb8a2d55a5b05e7d304cab11e5"
+  },
+  "rows": 496848,
+  "unique_tokens": 3125,
+  "first_sample_ts": "2026-04-11T20:26:53.379Z",
+  "last_sample_ts": "2026-07-01T00:55:55.138Z",
+  "keys": {
+    "sampleTs": 493517,
+    "mint": 496848,
+    "symbol": 496848,
+    "rejectReason": 496500,
+    "rejectTs": 496500,
+    "ageMin": 493517,
+    "priceUsd": 496844,
+    "liquidity": 493517,
+    "volume24h": 493517,
+    "priceChange5m": 493517,
+    "priceChange1h": 493517,
+    "priceChange24h": 496844,
+    "dexId": 493517,
+    "pairAddress": 493517,
+    "queriedAt": 3331,
+    "rejectionTimestamp": 348,
+    "reason": 348,
+    "alphaScoreSoFar": 394594,
+    "volumeH24": 3327,
+    "liquidityUsd": 3327,
+    "classification": 3331,
+    "regime": 385966
+  },
+  "types": {
+    "sampleTs": {
+      "str": 493517
+    },
+    "mint": {
+      "str": 496848
+    },
+    "symbol": {
+      "str": 496848
+    },
+    "rejectReason": {
+      "str": 496500
+    },
+    "rejectTs": {
+      "str": 496500
+    },
+    "ageMin": {
+      "int": 493517
+    },
+    "priceUsd": {
+      "float": 496844
+    },
+    "liquidity": {
+      "float": 479970,
+      "int": 4667,
+      "NoneType": 8880
+    },
+    "volume24h": {
+      "float": 488527,
+      "int": 4989,
+      "NoneType": 1
+    },
+    "priceChange5m": {
+      "float": 275894,
+      "NoneType": 215196,
+      "int": 2427
+    },
+    "priceChange1h": {
+      "float": 439722,
+      "NoneType": 46164,
+      "int": 7631
+    },
+    "priceChange24h": {
+      "float": 432303,
+      "int": 64383,
+      "NoneType": 158
+    },
+    "dexId": {
+      "str": 493517
+    },
+    "pairAddress": {
+      "str": 493517
+    },
+    "queriedAt": {
+      "int": 3331
+    },
+    "rejectionTimestamp": {
+      "str": 348
+    },
+    "reason": {
+      "str": 348
+    },
+    "alphaScoreSoFar": {
+      "int": 20735,
+      "float": 11302,
+      "NoneType": 362557
+    },
+    "volumeH24": {
+      "float": 3297,
+      "int": 30
+    },
+    "liquidityUsd": {
+      "float": 3070,
+      "int": 257
+    },
+    "classification": {
+      "str": 3331
+    },
+    "regime": {
+      "dict": 385966
+    }
+  },
+  "rejection_reasons": {
+    "timeSlot_not_strong": 34178,
+    "multi_tf_fade": 67742,
+    "ultra_fast_reject_exit": 10576,
+    "downtrend_24h": 260670,
+    "marketcap_out_of_range": 99332,
+    "hour_blacklist": 15354,
+    "utc_hour_blocked": 6537,
+    "None": 348,
+    "h6_sellers_dominating": 2111
+  },
+  "sample_rows": [
+    {
+      "sampleTs": "2026-04-11T20:26:53.379Z",
+      "mint": "EamB9vqC1b4aoyPR6t3hn6CWf48yny84xzCuFJMbpump",
+      "symbol": "Peepa",
+      "rejectReason": "timeSlot_not_strong",
+      "rejectTs": "2026-04-11T20:21:42.531Z",
+      "ageMin": 5,
+      "priceUsd": 0.0002317,
+      "liquidity": 43931.34,
+      "volume24h": 3043739.87,
+      "priceChange5m": 6.72,
+      "priceChange1h": 25.17,
+      "priceChange24h": -23.73,
+      "dexId": "pumpswap",
+      "pairAddress": "BoB3Dvi5eLGFr86BexBPNY2ZXwMNjWhx3FVCep3X2Vj6"
+    },
+    {
+      "sampleTs": "2026-04-11T20:26:53.542Z",
+      "mint": "AQGaTfXDcvinz6DuxfZEKKFp7hmiWDLis4FtK3chpump",
+      "symbol": "Ivunka",
+      "rejectReason": "multi_tf_fade",
+      "rejectTs": "2026-04-11T20:00:43.133Z",
+      "ageMin": 26,
+      "priceUsd": 0.0001058,
+      "liquidity": 26541.75,
+      "volume24h": 630400.34,
+      "priceChange5m": -10.41,
+      "priceChange1h": -14.65,
+      "priceChange24h": 201,
+      "dexId": "pumpswap",
+      "pairAddress": "AHBtpXJ7csokwSXddEDxPFYHcA515g234kXTBMhAVRxe"
+    },
+    {
+      "sampleTs": "2026-04-11T20:26:53.705Z",
+      "mint": "6TRyMNFbS6y444mDECfaENQrVnvZP4XzMr2fa6f8pump",
+      "symbol": "[REDACTED-SYM]",
+      "rejectReason": "ultra_fast_reject_exit",
+      "rejectTs": "2026-04-11T19:53:33.056Z",
+      "ageMin": 33,
+      "priceUsd": 0.0001544,
+      "liquidity": 32229.24,
+      "volume24h": 641950.22,
+      "priceChange5m": -10.94,
+      "priceChange1h": 91.86,
+      "priceChange24h": 338,
+      "dexId": "pumpswap",
+      "pairAddress": "BJLaR38FZ2accuRrABzAWdiMeZ8mF3Ky5tL6q853bgBh"
+    },
+    {
+      "sampleTs": "2026-04-11T20:26:53.869Z",
+      "mint": "EgiJdQ8dbQHWu1uKS6cQBPaF2sK3a7WFpkjHEgdDpump",
+      "symbol": "Dodger",
+      "rejectReason": "multi_tf_fade",
+      "rejectTs": "2026-04-11T19:29:11.694Z",
+      "ageMin": 58,
+      "priceUsd": 4.133e-05,
+      "liquidity": 16855.49,
+      "volume24h": 909497.4,
+      "priceChange5m": -39.88,
+      "priceChange1h": -66.86,
+      "priceChange24h": 17.08,
+      "dexId": "pumpswap",
+      "pairAddress": "7yrRRCzf429YQ1xQgdZZMy5KQ5jtkkDC7gUZWyPerhXr"
+    },
+    {
+      "sampleTs": "2026-04-11T20:26:54.032Z",
+      "mint": "7bfbBZXpMYbNjhZ6eQ8Ch8VFAbgcz4WsrY7JtQKcpump",
+      "symbol": "BOATGUY",
+      "rejectReason": "downtrend_24h",
+      "rejectTs": "2026-04-11T19:27:26.855Z",
+      "ageMin": 59,
+      "priceUsd": 1.229e-05,
+      "liquidity": 8744.91,
+      "volume24h": 236639.97,
+      "priceChange5m": -12.37,
+      "priceChange1h": -17.51,
+      "priceChange24h": -65.06,
+      "dexId": "pumpswap",
+      "pairAddress": "6gALa6BfE8ce8pLYaEFsTkCtxozfbuBR5bMVK3nKeFD4"
+    }
+  ]
+}
