@@ -1,0 +1,93 @@
+name: Temporary V3 rejection corpus inspection
+
+on:
+  push:
+    branches: [tmp-dog-bot-v3-research]
+    paths:
+      - .github/workflows/tmp-v3-rejection-inspect.yml
+      - .tmp-v3-rejection-trigger
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-dog-bot-v3-research
+
+      - name: Download, verify and inspect corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tmp-v3-data
+          python3 - <<'PY'
+          import gzip, hashlib, json, pathlib, time, urllib.request
+          from collections import Counter
+          from datetime import datetime
+
+          url = 'https://zenodo.org/records/21149176/files/rejection_outcomes.jsonl.gz?download=1'
+          target = pathlib.Path('/tmp/rejection_outcomes.jsonl.gz')
+          expected = '38f7ffeb8a2d55a5b05e7d304cab11e5'
+          for attempt in range(8):
+              try:
+                  req = urllib.request.Request(url, headers={'User-Agent':'dog-bot-v3-research/1.0'})
+                  with urllib.request.urlopen(req, timeout=180) as response:
+                      target.write_bytes(response.read())
+                  break
+              except Exception:
+                  if attempt == 7: raise
+                  time.sleep(min(60, 2 ** attempt))
+          digest = hashlib.md5(target.read_bytes()).hexdigest()
+          if digest != expected:
+              raise SystemExit(f'MD5 mismatch: {digest}')
+
+          key_counts = Counter(); reason_counts = Counter(); type_counts = {}
+          samples = []; tokens = set(); rows = 0; first_ts = None; last_ts = None
+          with gzip.open(target, 'rt', encoding='utf-8') as handle:
+              for line in handle:
+                  if not line.strip(): continue
+                  row = json.loads(line); rows += 1
+                  if len(samples) < 5: samples.append(row)
+                  key_counts.update(row.keys())
+                  reason_counts[str(row.get('rejectReason'))] += 1
+                  mint = row.get('mint')
+                  if mint: tokens.add(mint)
+                  for key, value in row.items():
+                      type_counts.setdefault(key, Counter())[type(value).__name__] += 1
+                  ts = row.get('sampleTs')
+                  if ts:
+                      first_ts = ts if first_ts is None or ts < first_ts else first_ts
+                      last_ts = ts if last_ts is None or ts > last_ts else last_ts
+
+          payload = {
+              'source': 'https://zenodo.org/records/21149176',
+              'doi': '10.5281/zenodo.21149176',
+              'file': {'name': target.name, 'bytes': target.stat().st_size, 'md5': digest},
+              'rows': rows,
+              'unique_tokens': len(tokens),
+              'first_sample_ts': first_ts,
+              'last_sample_ts': last_ts,
+              'keys': dict(key_counts),
+              'types': {k: dict(v) for k,v in type_counts.items()},
+              'rejection_reasons': dict(reason_counts),
+              'sample_rows': samples,
+          }
+          pathlib.Path('tmp-v3-data/rejection-inspection.json').write_text(
+              json.dumps(payload, indent=2, ensure_ascii=False), encoding='utf-8')
+          print(json.dumps({k:payload[k] for k in ('rows','unique_tokens','first_sample_ts','last_sample_ts')}, indent=2))
+          PY
+
+      - name: Commit inspection metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tmp-v3-data/rejection-inspection.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'research: add verified rejection corpus schema'
+          git push origin HEAD:tmp-dog-bot-v3-research
