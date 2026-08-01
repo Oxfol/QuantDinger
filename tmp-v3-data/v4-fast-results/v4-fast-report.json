@@ -1,0 +1,235 @@
+{
+  "status": "failed",
+  "source": {
+    "md5": "38f7ffeb8a2d55a5b05e7d304cab11e5",
+    "episodes": 3105,
+    "first": "2026-04-11T20:26:53.379000+00:00",
+    "last": "2026-07-01T00:45:46.719000+00:00"
+  },
+  "split": {
+    "train_days": 31,
+    "validation_days": 15,
+    "test_days": 16,
+    "train": 1440,
+    "validation": 801,
+    "test": 864
+  },
+  "selected": {
+    "score": 6.364209130231666,
+    "profile": "runner",
+    "family": "momentum",
+    "model": "extra",
+    "depth": null,
+    "leaf": 20,
+    "quantile": 0.95,
+    "position_fraction": 0.1,
+    "max_exposure": 0.3,
+    "validation": {
+      "final": 1923.61606076212,
+      "net": 1873.61606076212,
+      "days": 15,
+      "avg_daily": 124.90773738414133,
+      "max_dd": 0.1329401640797497,
+      "trades": 18,
+      "win_rate": 0.3888888888888889,
+      "skipped": 0,
+      "net_without_top3": 95.46313695347499
+    }
+  },
+  "threshold_after_refit": -0.012829276302447972,
+  "test": {
+    "final": 80.36516411852789,
+    "net": 30.365164118527886,
+    "days": 36,
+    "avg_daily": 0.8434767810702191,
+    "max_dd": 0.3508914956783454,
+    "trades": 18,
+    "win_rate": 0.2222222222222222,
+    "skipped": 1,
+    "net_without_top3": -31.866497698689315
+  },
+  "stress": {
+    "last_optimistic": {
+      "final": 84.78188239939873,
+      "net": 34.781882399398725,
+      "days": 36,
+      "avg_daily": 0.9661633999832979,
+      "max_dd": 0.32516867727941035,
+      "trades": 18,
+      "win_rate": 0.2222222222222222,
+      "skipped": 1,
+      "net_without_top3": -29.478018616428272
+    },
+    "last_base": {
+      "final": 80.36516411852789,
+      "net": 30.365164118527886,
+      "days": 36,
+      "avg_daily": 0.8434767810702191,
+      "max_dd": 0.3508914956783454,
+      "trades": 18,
+      "win_rate": 0.2222222222222222,
+      "skipped": 1,
+      "net_without_top3": -31.866497698689315
+    },
+    "last_stress": {
+      "final": 74.80790064439438,
+      "net": 24.80790064439438,
+      "days": 36,
+      "avg_daily": 0.6891083512331773,
+      "max_dd": 0.39027538597439443,
+      "trades": 18,
+      "win_rate": 0.2222222222222222,
+      "skipped": 1,
+      "net_without_top3": -34.869876008370376
+    },
+    "zero_optimistic": {
+      "final": 72.38234669054985,
+      "net": 22.382346690549852,
+      "days": 36,
+      "avg_daily": 0.6217318525152736,
+      "max_dd": 0.32516867727941035,
+      "trades": 18,
+      "win_rate": 0.2222222222222222,
+      "skipped": 1,
+      "net_without_top3": -29.478018616428265
+    },
+    "zero_base": {
+      "final": 68.58692336503826,
+      "net": 18.58692336503826,
+      "days": 36,
+      "avg_daily": 0.5163034268066183,
+      "max_dd": 0.3508914956783454,
+      "trades": 18,
+      "win_rate": 0.2222222222222222,
+      "skipped": 1,
+      "net_without_top3": -31.866497698689308
+    },
+    "zero_stress": {
+      "final": 63.81337076596681,
+      "net": 13.813370765966809,
+      "days": 36,
+      "avg_daily": 0.383704743499078,
+      "max_dd": 0.39027538597439443,
+      "trades": 18,
+      "win_rate": 0.2222222222222222,
+      "skipped": 1,
+      "net_without_top3": -34.869876008370376
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "log_vol",
+      "importance": 0.152985910141291
+    },
+    {
+      "feature": "hour_sin",
+      "importance": 0.09017228447228583
+    },
+    {
+      "feature": "hour_cos",
+      "importance": 0.06483947308088252
+    },
+    {
+      "feature": "delay_m",
+      "importance": 0.06008182349975394
+    },
+    {
+      "feature": "reason_downtrend_24h",
+      "importance": 0.05987892125297114
+    },
+    {
+      "feature": "log_liq",
+      "importance": 0.059663478075517466
+    },
+    {
+      "feature": "pc1",
+      "importance": 0.05655792578831086
+    },
+    {
+      "feature": "age",
+      "importance": 0.05177196043283372
+    },
+    {
+      "feature": "log_vl",
+      "importance": 0.050927755368225865
+    },
+    {
+      "feature": "pc24",
+      "importance": 0.04747195708380415
+    },
+    {
+      "feature": "reason_multi_tf_fade",
+      "importance": 0.045638632728782665
+    },
+    {
+      "feature": "log_age",
+      "importance": 0.04515553826952934
+    },
+    {
+      "feature": "reg_fear_greed_index",
+      "importance": 0.04472791870281622
+    },
+    {
+      "feature": "reg_btc_usd",
+      "importance": 0.03928934102032555
+    },
+    {
+      "feature": "reason_marketcap_out_of_range",
+      "importance": 0.03202318979059123
+    },
+    {
+      "feature": "pc5",
+      "importance": 0.020063019293567144
+    },
+    {
+      "feature": "reason_ultra_fast_reject_exit",
+      "importance": 0.018855304757265004
+    },
+    {
+      "feature": "reason_timeSlot_not_strong",
+      "importance": 0.018770275134653187
+    },
+    {
+      "feature": "reg_btc_change_24h_pct",
+      "importance": 0.013902419966731692
+    },
+    {
+      "feature": "dex_pumpswap",
+      "importance": 0.013150883380024443
+    },
+    {
+      "feature": "reason_hour_blacklist",
+      "importance": 0.005003861390814327
+    },
+    {
+      "feature": "dex_raydium",
+      "importance": 0.00493136739313631
+    },
+    {
+      "feature": "reason_utc_hour_blocked",
+      "importance": 0.0021277683437597615
+    },
+    {
+      "feature": "dex_pumpfun",
+      "importance": 0.0011930896716534163
+    },
+    {
+      "feature": "dex_meteora",
+      "importance": 0.0008159009604733175
+    }
+  ],
+  "gate": {
+    "passed": false,
+    "target_daily": 2,
+    "minimum_days": 10,
+    "minimum_trades": 50,
+    "maximum_drawdown": 0.3
+  },
+  "method": [
+    "Complete-day chronological split",
+    "Validation-only family/model/risk selection",
+    "Test opened once",
+    "6% base friction; 3% and 10% stress matrix",
+    "Carry-forward and zero-recovery censoring bounds"
+  ]
+}
