@@ -1,0 +1,44 @@
+name: Temporary V4 branch runner
+
+on:
+  push:
+    branches: [tmp-dog-bot-v3-research]
+    paths:
+      - tmp-v3-data/v4_temporal_optimizer.py
+      - .tmp-v4-trigger
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-dog-bot-v3-research
+      - run: python -m pip install --disable-pip-version-check -q numpy pandas scikit-learn
+      - name: Download corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/v4 tmp-v3-data/v4-results
+          curl -L --fail --retry 7 --retry-all-errors --connect-timeout 30 --max-time 600 -A 'dog-bot-v4-research/1.0' 'https://zenodo.org/records/21149176/files/rejection_outcomes.jsonl.gz?download=1' -o /tmp/v4/rejection_outcomes.jsonl.gz
+          echo '38f7ffeb8a2d55a5b05e7d304cab11e5  /tmp/v4/rejection_outcomes.jsonl.gz' | md5sum -c -
+      - name: Optimize
+        id: optimize
+        continue-on-error: true
+        shell: bash
+        run: python tmp-v3-data/v4_temporal_optimizer.py --corpus /tmp/v4/rejection_outcomes.jsonl.gz --output tmp-v3-data/v4-results > tmp-v3-data/v4-results/run.log 2>&1
+      - name: Preserve results
+        if: always()
+        shell: bash
+        run: |
+          printf 'outcome=%s\nrun_id=%s\n' '${{ steps.optimize.outcome }}' '${{ github.run_id }}' > tmp-v3-data/v4-results/workflow-status.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tmp-v3-data/v4-results
+          if ! git diff --cached --quiet; then git commit -m 'research: add V4 optimizer output'; git push origin HEAD:tmp-dog-bot-v3-research; fi
+      - if: steps.optimize.outcome != 'success'
+        run: exit 1
