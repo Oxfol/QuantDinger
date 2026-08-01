@@ -6,8 +6,10 @@ on:
     paths:
       - tmp-v3-data/v4_temporal_optimizer.py
       - tmp-v3-data/v4_fast_driver.py
+      - tmp-v3-data/v4_fast_wrapper.py
       - .tmp-v4-trigger
       - .tmp-v4-fast-trigger
+      - .tmp-v4-fast-trigger-2
 
 permissions:
   contents: write
@@ -34,7 +36,7 @@ jobs:
         id: optimize
         continue-on-error: true
         shell: bash
-        run: PYTHONPATH=tmp-v3-data python tmp-v3-data/v4_fast_driver.py --corpus /tmp/v4/rejection_outcomes.jsonl.gz --output tmp-v3-data/v4-fast-results > tmp-v3-data/v4-fast-results/run.log 2>&1
+        run: PYTHONPATH=tmp-v3-data python tmp-v3-data/v4_fast_wrapper.py --corpus /tmp/v4/rejection_outcomes.jsonl.gz --output tmp-v3-data/v4-fast-results > tmp-v3-data/v4-fast-results/run.log 2>&1
       - name: Preserve results
         if: always()
         shell: bash
