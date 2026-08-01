@@ -1,0 +1,28 @@
+name: Temporary V7 corpus artifact
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '.tmp-v7-corpus-*'
+permissions:
+  contents: read
+jobs:
+  corpus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Download verified corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifact
+          curl -L --fail --retry 7 --retry-all-errors --connect-timeout 30 --max-time 600 -A 'dog-bot-v7-corpus/1.0' 'https://zenodo.org/records/21149176/files/rejection_outcomes.jsonl.gz?download=1' -o artifact/rejection_outcomes.jsonl.gz
+          echo '38f7ffeb8a2d55a5b05e7d304cab11e5  artifact/rejection_outcomes.jsonl.gz' | md5sum -c -
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v7-corpus
+          path: artifact/rejection_outcomes.jsonl.gz
+          retention-days: 3
