@@ -1,0 +1,70 @@
+name: Temporary V4 temporal optimizer
+
+on:
+  push:
+    branches: [tmp-dog-bot-v3-research]
+    paths:
+      - .github/workflows/tmp-v4-temporal-optimizer.yml
+      - tmp-v3-data/v4_temporal_optimizer.py
+      - .tmp-v4-trigger
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-dog-bot-v3-research
+
+      - name: Install research dependencies
+        run: python -m pip install --disable-pip-version-check -q numpy pandas scikit-learn
+
+      - name: Download checksum-validated corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/v4 tmp-v3-data/v4-results
+          curl -L --fail --retry 7 --retry-all-errors --connect-timeout 30 --max-time 600 \
+            -A 'dog-bot-v4-research/1.0' \
+            'https://zenodo.org/records/21149176/files/rejection_outcomes.jsonl.gz?download=1' \
+            -o /tmp/v4/rejection_outcomes.jsonl.gz
+          echo '38f7ffeb8a2d55a5b05e7d304cab11e5  /tmp/v4/rejection_outcomes.jsonl.gz' | md5sum -c -
+
+      - name: Run chronological optimizer
+        id: run_optimizer
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          python tmp-v3-data/v4_temporal_optimizer.py \
+            --corpus /tmp/v4/rejection_outcomes.jsonl.gz \
+            --output tmp-v3-data/v4-results \
+            > tmp-v3-data/v4-results/run.log 2>&1
+
+      - name: Record workflow status
+        if: always()
+        shell: bash
+        run: |
+          printf 'optimizer_outcome=%s\nrun_id=%s\ncommit=%s\n' \
+            '${{ steps.run_optimizer.outcome }}' '${{ github.run_id }}' '${{ github.sha }}' \
+            > tmp-v3-data/v4-results/workflow-status.txt
+
+      - name: Commit compact results
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tmp-v3-data/v4-results
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'research: add V4 temporal optimizer results'
+          git push origin HEAD:tmp-dog-bot-v3-research
+
+      - name: Fail after preserving diagnostics
+        if: steps.run_optimizer.outcome != 'success'
+        run: exit 1
