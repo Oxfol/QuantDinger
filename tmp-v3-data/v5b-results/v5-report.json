@@ -1,0 +1,258 @@
+{
+  "status": "failed",
+  "source": {
+    "md5": "38f7ffeb8a2d55a5b05e7d304cab11e5",
+    "episodes": 3105,
+    "first": "2026-04-11T20:26:53.379000+00:00",
+    "last": "2026-07-01T00:45:46.719000+00:00"
+  },
+  "days": {
+    "all": 62,
+    "walk_forward_folds": 3,
+    "fit": 46,
+    "test": 16
+  },
+  "selected": {
+    "score": 0.4268768953747268,
+    "profile": "runner",
+    "family": "momentum",
+    "model": "extra",
+    "depth": 5,
+    "leaf": 10,
+    "quantile": 0.8,
+    "topk": 5,
+    "position_fraction": 0.1,
+    "max_exposure": 0.3,
+    "folds": [
+      {
+        "final": 68.78620151669053,
+        "net": 18.786201516690525,
+        "days": 9,
+        "avg_daily": 2.087355724076725,
+        "max_dd": 0.06457382139894662,
+        "trades": 5,
+        "win_rate": 0.4,
+        "skipped": 0,
+        "net_without_top3": -5.0147027012634915
+      },
+      {
+        "final": 44.070200428233875,
+        "net": -5.929799571766125,
+        "days": 9,
+        "avg_daily": -0.658866619085125,
+        "max_dd": 0.22614074635216805,
+        "trades": 25,
+        "win_rate": 0.32,
+        "skipped": 0,
+        "net_without_top3": -18.58875835336533
+      },
+      {
+        "final": 96.03931595674672,
+        "net": 46.03931595674672,
+        "days": 10,
+        "avg_daily": 4.603931595674672,
+        "max_dd": 0.2549692496699908,
+        "trades": 26,
+        "win_rate": 0.34615384615384615,
+        "skipped": 2,
+        "net_without_top3": -21.36876468279054
+      }
+    ]
+  },
+  "threshold": -0.12589287533874496,
+  "test": {
+    "final": 79.37907272091236,
+    "net": 29.37907272091236,
+    "days": 36,
+    "avg_daily": 0.8160853533586767,
+    "max_dd": 0.5247727516962839,
+    "trades": 52,
+    "win_rate": 0.25,
+    "skipped": 10,
+    "net_without_top3": -34.492119069270046
+  },
+  "stress": {
+    "last_optimistic": {
+      "final": 91.50298251269365,
+      "net": 41.50298251269365,
+      "days": 36,
+      "avg_daily": 1.1528606253526013,
+      "max_dd": 0.4797062933332581,
+      "trades": 52,
+      "win_rate": 0.2692307692307692,
+      "skipped": 10,
+      "net_without_top3": -26.581916923023442
+    },
+    "last_base": {
+      "final": 79.37907272091236,
+      "net": 29.37907272091236,
+      "days": 36,
+      "avg_daily": 0.8160853533586767,
+      "max_dd": 0.5247727516962839,
+      "trades": 52,
+      "win_rate": 0.25,
+      "skipped": 10,
+      "net_without_top3": -34.492119069270046
+    },
+    "last_stress": {
+      "final": 71.01515327755669,
+      "net": 21.015153277556692,
+      "days": 36,
+      "avg_daily": 0.5837542577099081,
+      "max_dd": 0.5610547874255581,
+      "trades": 50,
+      "win_rate": 0.26,
+      "skipped": 12,
+      "net_without_top3": -39.485618608388265
+    },
+    "zero_optimistic": {
+      "final": 73.33937743040134,
+      "net": 23.339377430401342,
+      "days": 36,
+      "avg_daily": 0.6483160397333706,
+      "max_dd": 0.4797062933332581,
+      "trades": 52,
+      "win_rate": 0.25,
+      "skipped": 10,
+      "net_without_top3": -34.3104204058573
+    },
+    "zero_base": {
+      "final": 63.58829829557833,
+      "net": 13.588298295578333,
+      "days": 36,
+      "avg_daily": 0.3774527304327315,
+      "max_dd": 0.5247727516962839,
+      "trades": 52,
+      "win_rate": 0.25,
+      "skipped": 10,
+      "net_without_top3": -41.421111455161274
+    },
+    "zero_stress": {
+      "final": 56.84768147024551,
+      "net": 6.8476814702455115,
+      "days": 36,
+      "avg_daily": 0.19021337417348644,
+      "max_dd": 0.5610547874255581,
+      "trades": 50,
+      "win_rate": 0.26,
+      "skipped": 12,
+      "net_without_top3": -45.95984724069343
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "log_vol",
+      "importance": 0.12497726480267699
+    },
+    {
+      "feature": "hour_sin",
+      "importance": 0.09511878503436105
+    },
+    {
+      "feature": "pc1",
+      "importance": 0.07326618411236328
+    },
+    {
+      "feature": "reason_multi_tf_fade",
+      "importance": 0.06755287050009477
+    },
+    {
+      "feature": "delay_m",
+      "importance": 0.058031858921858685
+    },
+    {
+      "feature": "log_liq",
+      "importance": 0.055832195943883445
+    },
+    {
+      "feature": "log_vl",
+      "importance": 0.05523074917512088
+    },
+    {
+      "feature": "reason_ultra_fast_reject_exit",
+      "importance": 0.04641374643938366
+    },
+    {
+      "feature": "age",
+      "importance": 0.04446412767040554
+    },
+    {
+      "feature": "pc24",
+      "importance": 0.0444532029778129
+    },
+    {
+      "feature": "reason_downtrend_24h",
+      "importance": 0.04409690721988301
+    },
+    {
+      "feature": "hour_cos",
+      "importance": 0.044036324076756825
+    },
+    {
+      "feature": "log_age",
+      "importance": 0.041348614853435134
+    },
+    {
+      "feature": "reg_fear_greed_index",
+      "importance": 0.03463277281334225
+    },
+    {
+      "feature": "reg_btc_usd",
+      "importance": 0.02794800483207189
+    },
+    {
+      "feature": "reason_marketcap_out_of_range",
+      "importance": 0.026869953651954655
+    },
+    {
+      "feature": "reason_timeSlot_not_strong",
+      "importance": 0.02187407693777666
+    },
+    {
+      "feature": "dex_pumpswap",
+      "importance": 0.020823784171774874
+    },
+    {
+      "feature": "reg_btc_change_24h_pct",
+      "importance": 0.018260467998240843
+    },
+    {
+      "feature": "pc5",
+      "importance": 0.017838982437639022
+    },
+    {
+      "feature": "dex_raydium",
+      "importance": 0.015119430240187536
+    },
+    {
+      "feature": "reason_hour_blacklist",
+      "importance": 0.014136164203205771
+    },
+    {
+      "feature": "reason_utc_hour_blocked",
+      "importance": 0.0036503108536548377
+    },
+    {
+      "feature": "dex_meteora",
+      "importance": 0.0025873391716240675
+    },
+    {
+      "feature": "dex_pumpfun",
+      "importance": 0.001435880960491427
+    }
+  ],
+  "gate": {
+    "passed": false,
+    "target_daily": 2,
+    "min_days": 10,
+    "min_trades": 50,
+    "max_dd": 0.3
+  },
+  "method": [
+    "Three expanding pre-test walk-forward folds",
+    "Daily top-K ranking",
+    "Return capped at 400% for robustness",
+    "6% base friction and 3%/10% stress",
+    "Test opened once"
+  ]
+}
